@@ -1,29 +1,40 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
-import { StoreProvider } from "./utils/GlobalState";
-import FavoritesList from "./pages/FavoritesList";
+import React from 'react';
+import './App.css';
+import Main from "./pages/main";
+import CreateEvent from "./pages/createevent";
+import MyEvents from "./pages/myevents"
+import MyAccount from "./pages/myaccount"
+import SignUp from "./pages/signup"
+import Login from "./pages/login";
+import PageNotFound from "./pages/pagenotfound";
+import ViewEvent from "./pages/viewevent";
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+ 
+} from 'react-router-dom';
 
 function App() {
   return (
-    <Router>
-      <div>
-        <StoreProvider>
-          <Nav />
+    <div className="App">
+      <Router>
+        <div>
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/favorites" component={FavoritesList} />
-            <Route exact path="/posts/:id" component={Detail} />
-            <Route component={NoMatch} />
+            <Route exact path="/" component={Main} />
+            <Route exact path="/createevent" component={CreateEvent} />
+            <Route exact path="/loginpage" component={Login} />
+            {/* <Route exact path="/logout" component={Logout} /> */}
+            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/myevents" component={MyEvents} />
+            <Route exact path="/myaccount" component={MyAccount} />
+            <Route path="/view/event/:id" component={ViewEvent}/> 
+            <Route component={PageNotFound} />
           </Switch>
-        </StoreProvider>
-      </div>
-    </Router>
-  );
-}
-
-export default App;
+        </div>
+      </Router>
+    </div>
+      );
+    }
+    export default App;
