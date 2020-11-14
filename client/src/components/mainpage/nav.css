@@ -1,0 +1,14 @@
+.hiddenForNav {
+    display: none;
+} 
+
+.brand-logo { 
+    align-items: left !important;
+    font-family: 'Odibee Sans', cursive;
+    margin-left: 15px;
+
+}
+
+.nav-wrapper {
+    background: #026670;
+}
